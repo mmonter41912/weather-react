@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div className="App">
       <footer>
-        This project was coded by <a href="https://www.marlenalvarado.com">Marlen Alvarado</a> and is {""}
+        This project was coded by <a href="https://www.marlenalvarado.com" target="_blank">Marlen Alvarado</a> and is {""}
         <a 
         href="https://github.com/mmonter41912/weather-react"
         target="_blank"
