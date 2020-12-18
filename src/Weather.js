@@ -70,7 +70,7 @@ export default function Weather (props){
                         </ul>
     
                     <div className="col-8" className="person">
-                        <img src="images/WalkingDog.svgs" alt="Person"/>
+                        <img src="images/WalkingDog.svg" alt="Person"/>
                     </div>
                 
                 </div>
@@ -80,10 +80,11 @@ export default function Weather (props){
         );
 
     } else {
-        const apiKey = "f7bcaae56975747b83d88801e136e5f9";
+        const apiKey = "5ea09e8580063191dd08cfebcb59b6ab";
+        let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
+        axios.get(apiUrl).then(handleResponse);
     
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
-    axios.get(apiUrl).then(handleResponse);
+
 
     return "Loading...";
     } 
