@@ -28,7 +28,7 @@ export default function Weather (props){
             <div className="Weather">
                 
                 <div className="row">
-                    <nav className="navbar navbar-transparent" className="col">
+                    <nav className="navbar navbar-transparent col">
                         <form className="form-inline" id="search-form">
                             <input className="form-control mr-sm-2" type="search" id="city-input" placeholder="Search" aria-label="Search" />
                             <button className="btn">
@@ -70,7 +70,7 @@ export default function Weather (props){
                             </li>
                         </ul>
     
-                    <div className="col-8" className="person">
+                    <div className="col-8 person">
                         <img src="images/WalkingDog.svg" alt="Person"/>
                     </div>
                 
