@@ -8,8 +8,8 @@ export default function App() {
     <div className="App">
       <div className="container">
         <Weather defaultCity="San Francisco" />
-        <footer rel="noreferrer">
-          This project was coded by <a href="https://www.marlenalvarado.com" target="_blank">Marlen Alvarado</a> and is {""}
+        <footer>
+          This project was coded by <a href="https://www.marlenalvarado.com" target="_blank" rel="noreferrer">Marlen Alvarado</a> and is {""}
           <a rel="noreferrer"
           href="https://github.com/mmonter41912/weather-react"
           target="_blank"
