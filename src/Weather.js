@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import "./Weather.css";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather (props){
     
     const[weatherData, setWeatherData] = useState({ ready: false});
+    const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response){
         
@@ -23,71 +24,57 @@ export default function Weather (props){
 
     }
 
+    function search() {
+        const apiKey = "5ea09e8580063191dd08cfebcb59b6ab";
+        let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+        axios.get(apiUrl).then(handleResponse);
+    }
+
+    function handleSubmit (event) {
+        event.preventDefault();
+        search();
+    }
+
+    function handleCityChange(event) {
+        setCity(event.target.value);
+    }
+
     if(weatherData.ready){
         return(
             <div className="Weather">
                 
                 <div className="row">
-                    <nav className="navbar navbar-transparent col">
-                        <form className="form-inline" id="search-form">
-                            <input className="form-control mr-sm-2" type="search" id="city-input" placeholder="Search" aria-label="Search" />
-                            <button className="btn">
-                                <i className="fa fa-search"></i></button>
-                            <button className="btn btn-succes" id="currentLocationButton">
-                                <i className="fas fa-location-arrow"></i></button>
+                    <nav>
+                        <form onSubmit={handleSubmit}>
+                            <div className="col-9">
+                                <input className="form-control mr-sm-2" 
+                                type="search" 
+                                placeholder="Enter a city" 
+                                aria-label="Search" 
+                                onChange={handleCityChange}
+                            />
+                            </div>
+                            <div className="col-3">
+                                <button className="btn">
+                                    <i className="fa fa-search"></i>
+                                </button>
+                                <button className="btn btn-succes">
+                                    <i className="fas fa-location-arrow"></i>
+                                </button>
+
+                            </div>
                         </form>
                     </nav>
                     
                 </div>
-                <div className="row">
-                 <h1 className="col">
-                     {weatherData.city}
-                 </h1>
-                </div>
-    
-                <div className="row">
-                    <div className="col">
-                        
-                        <h2><FormattedDate date = {weatherData.date} /></h2>
-                        <small className="text-capitalize">{weatherData.description}</small>
-                      
-                    </div>
-                </div>
-    
-                <div className="col-4">
-                    <img src={weatherData.icon} alt ={weatherData.description} className="float-left"/>
-                
-                    <span className="temperature">{Math.round(weatherData.temperature)}</span>
-                    <span className="units">°F</span>
-                    
-    
-                        <ul className="humidity">
-                            <li>
-                                Humidity: {weatherData.humidity}%
-                            </li>
-                            <li>
-                                Wind: {weatherData.wind} km/h
-                            </li>
-                        </ul>
-    
-                    <div className="col-8 person">
-                        <img src="images/WalkingDog.svg" alt="Person"/>
-                    </div>
-                
-                </div>
-    
+                <WeatherInfo data={weatherData}/>
     
             </div>
         );
 
     } else {
-        const apiKey = "5ea09e8580063191dd08cfebcb59b6ab";
-        let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
-        axios.get(apiUrl).then(handleResponse);
-    
-
-
-    return "Loading...";
+        search();
+        return "Loading...";
     } 
     
 }
