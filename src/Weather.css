@@ -62,6 +62,10 @@
     font-weight: 600;
     color: white;
   }
+  .Weather canvas {
+    margin-right: 10px;
+    display: inline-block;
+  }
   
   .temperature {
     font-family: "Assistant", sans-serif;
