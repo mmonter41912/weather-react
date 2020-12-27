@@ -46,7 +46,7 @@ export default function Weather (props){
                 <div className="row">
                     <nav>
                         <form onSubmit={handleSubmit}>
-                            <div className="col-9">
+                            <div className="col">
                                 <input className="form-control mr-sm-2" 
                                 type="search" 
                                 placeholder="Enter a city" 
@@ -54,17 +54,18 @@ export default function Weather (props){
                                 onChange={handleCityChange}
                             />
                             </div>
-                            <div className="col-3">
-                                <button className="btn">
-                                    <i className="fa fa-search"></i>
-                                </button>
-                                <button className="btn btn-succes">
-                                    <i className="fas fa-location-arrow"></i>
-                                </button>
-
-                            </div>
                         </form>
                     </nav>
+
+                    <div className="col">
+                        <button className="btn">
+                            <i className="fa fa-search"></i>
+                        </button>
+                        <button className="btn btn-succes">
+                            <i className="fas fa-location-arrow"></i>
+                        </button>
+
+                    </div>
                     
                 </div>
                 <WeatherInfo data={weatherData}/>

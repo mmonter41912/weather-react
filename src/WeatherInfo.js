@@ -19,22 +19,23 @@ export default function WeatherInfo(props) {
                         <small className="text-capitalize description">{props.data.description}</small>
                       
                     </div>
+                    
                 </div>
-    
-                <div className="col-4">
-                    <div>
+                <div className="row">
+                    <div className="col-4">
+                    
                         <WeatherIcon 
                             code = {props.data.icon}
                         />
-                    </div>
-                    
-                
-                    <div className="float-left">
                         <WeatherTemperature fahrenheit={props.data.temperature}/>
-                    </div>
                     
-    
-                        <ul className="humidity">
+                    </div>
+                    <div className="col-8 person">
+                        <img src="images/WalkingDog.svg" alt="Person"/>
+                    </div>
+                </div>
+                <div className="row">
+                <ul className="humidity">
                             <li>
                                 Humidity: {props.data.humidity}%
                             </li>
@@ -42,12 +43,8 @@ export default function WeatherInfo(props) {
                                 Wind: {props.data.wind} km/h
                             </li>
                         </ul>
-    
-                    <div className="col-8 person">
-                        <img src="images/WalkingDog.svg" alt="Person"/>
-                    </div>
-                
                 </div>
+                
         </div>
     )
 }
