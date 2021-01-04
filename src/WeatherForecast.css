@@ -1,9 +1,14 @@
 .WeatherForecast{
     text-align: center;
-    margin: 20px 0;
+    margin-top: 40px 0;
 }
 
 .WeatherForecast{
-    display: block;
+    
     margin: 5px auto;
+}
+
+.WeatherForecastPreview {
+    font-family: "Assistant";
+    color: white;
 }

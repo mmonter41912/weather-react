@@ -59,11 +59,8 @@ export default function Weather (props){
                     </nav>
 
                     <div className="col">
-                        <button className="btn">
+                        <button className="btn" onSubmit={handleSubmit}>
                             <i className="fa fa-search"></i>
-                        </button>
-                        <button className="btn btn-succes">
-                            <i className="fas fa-location-arrow"></i>
                         </button>
 
                     </div>
